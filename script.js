@@ -1,4 +1,3 @@
-
 const phrases = [
   "🧠 Stay curious. Stay secure.",
   "Scanning vulnerabilities...",
@@ -6,36 +5,24 @@ const phrases = [
   "Listening on port 443..."
 ];
 const el = document.querySelector(".typed-text");
-let i = 0, j = 0, currentPhrase = [], isDeleting = false, isEnd = false;
-
+let i = 0, j = 0, isDeleting = false;
 function loop() {
-  isEnd = false;
-  el.innerHTML = currentPhrase.join("");
-
-  if (i < phrases.length) {
-    if (!isDeleting && j <= phrases[i].length) {
-      currentPhrase.push(phrases[i][j]);
-      j++;
-    }
-
-    if (isDeleting && j <= phrases[i].length) {
-      currentPhrase.pop();
-      j--;
-    }
-
-    if (j == phrases[i].length) {
-      isEnd = true;
-      isDeleting = true;
-    }
-
-    if (isDeleting && j === 0) {
-      currentPhrase = [];
-      isDeleting = false;
-      i++;
-      if (i === phrases.length) i = 0;
-    }
+  const current = phrases[i];
+  if (!isDeleting && j < current.length) {
+    el.textContent += current[j++];
+  } else if (isDeleting && j > 0) {
+    el.textContent = el.textContent.slice(0, -1);
+    j--;
   }
-  const speed = isEnd ? 2000 : isDeleting ? 50 : 100;
-  setTimeout(loop, speed);
+  if (j === current.length) {
+    isDeleting = true;
+    setTimeout(loop, 1000);
+    return;
+  }
+  if (isDeleting && j === 0) {
+    isDeleting = false;
+    i = (i + 1) % phrases.length;
+  }
+  setTimeout(loop, isDeleting ? 50 : 150);
 }
-loop();
+document.addEventListener("DOMContentLoaded", loop);
