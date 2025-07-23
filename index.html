@@ -1,66 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashu_Cipher | Cybersecurity Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashu_Cipher | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
+<body class="dark-mode">
 
-<body>
-  <div class="hero-section">
-    <div class="glitch-avatar">
-      <img src="img.png" alt="Ashu_Cipher" class="profile-pic" />
-    </div>
-    <div class="typing-terminal">
-      <h1><span class="typed-text"></span><span class="cursor">|</span></h1>
-    </div>
-  </div>
+  <!-- Toggle Dark Mode -->
+  <button id="toggleMode" title="Toggle Dark Mode">🌓</button>
 
   <div class="container">
-    <section class="section-box about">
+
+    <!-- Header Section -->
+    <header class="header">
+      <div class="profile">
+        <img src="img.png" alt="Ashu_Cipher" class="profile-pic" />
+      </div>
+      <div class="hacker-text">
+        <h1><span id="typing"></span><span class="cursor">|</span></h1>
+        <p class="tagline">🧠 Stay curious. Stay secure. – Ashu_Cipher</p>
+      </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section class="box about">
       <h2>About Me</h2>
-      <p>I'm a school student diving deep into the world of cybersecurity and ethical hacking. I’ve earned 15+ certifications from Great Learning in Linux, networking, and cybersecurity. I practice regularly on TryHackMe, and I’ve learned Python at an intermediate level (though I rarely use it). Connect with me: <strong>@ashu_cipher</strong></p>
+      <p>
+        School student diving deep into the world of ethical hacking and cybersecurity. 
+        I've completed over 15 certifications via Great Learning in cybersecurity, Linux, and networking. 
+        I'm also an active learner on TryHackMe. I know Python at an intermediate level (though I rarely use it 😉).
+      </p>
     </section>
 
-    <section class="section-box skills">
+    <!-- Skills Section -->
+    <section class="box skills">
       <h2>Skills</h2>
       <ul>
-        <li>Linux & Shell</li>
-        <li>Networking Basics & Protocols</li>
+        <li>Ethical Hacking</li>
         <li>Cybersecurity Fundamentals</li>
+        <li>Linux Command Line & Security</li>
+        <li>Networking (OSI, TCP/IP, DNS, etc.)</li>
         <li>Python (Intermediate)</li>
-        <li>TryHackMe Rooms</li>
+        <li>Tools: Nmap, Wireshark, Burp Suite</li>
       </ul>
     </section>
 
-    <section class="section-box projects">
+    <!-- Projects Section -->
+    <section class="box projects">
       <h2>Projects</h2>
-      <p>Projects will sync from GitHub automatically (integration pending).</p>
+      <p>Projects will automatically sync here from GitHub (integration in progress).</p>
     </section>
 
-    <section class="section-box contact">
+    <!-- Contact Section -->
+    <section class="box contact">
       <h2>Contact</h2>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/ashu_cipher" target="_blank">@ashu_cipher</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/amardeep-kumar-305562376" target="_blank">LinkedIn Profile</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Ashu-Cipher" target="_blank">Ashu-Cipher</a></p>
+      <p><strong>X (Twitter):</strong> <a href="https://x.com/Ashu_Cipher" target="_blank">@Ashu_Cipher</a></p>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="box feedback">
+      <h2>Feedback</h2>
+      <p>If you have suggestions, feel free to:</p>
       <ul>
-        <li>GitHub: <a href="https://github.com/Ashu-Cipher" target="_blank">Ashu-Cipher</a></li>
-        <li>Instagram: <a href="https://instagram.com/ashu_cipher" target="_blank">@ashu_cipher</a></li>
-        <li>X (Twitter): <a href="https://x.com/Ashu_Cipher" target="_blank">@Ashu_Cipher</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/amardeep-kumar-305562376" target="_blank">Amardeep Kumar</a></li>
+        <li>📩 DM me on Instagram <a href="https://instagram.com/ashu_cipher">@ashu_cipher</a></li>
+        <li>🐛 Create an Issue on <a href="https://github.com/Ashu-Cipher" target="_blank">my GitHub profile</a></li>
       </ul>
     </section>
 
-    <section class="section-box feedback">
-      <h2>Feedback</h2>
-      <p>Have suggestions? Drop a DM on Instagram or create an issue on my GitHub portfolio repo.</p>
-    </section>
   </div>
-
-  <footer>
-    <p>🧠 Stay curious. Stay secure. – Ashu_Cipher</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
-
 </html>
