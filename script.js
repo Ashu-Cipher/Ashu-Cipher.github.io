@@ -1,5 +1,5 @@
 
-const text = "Ethical Hacker 🛡️" , "Cybersecurity Enthusiast 🔐" , "Network Tester 🌐" , "Penetration Tester 👨🏻‍💻" ;
+const text = "Learning. Breaking. Securing. " ;
 let index = 0;
 let forward = true;
 const speed = 100;
