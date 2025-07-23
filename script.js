@@ -1,28 +1,39 @@
 const phrases = [
-  "🧠 Stay curious. Stay secure.",
-  "Scanning vulnerabilities...",
-  "TryHackMe Session: Active",
-  "Listening on port 443..."
+  "Student. Ethical Hacker.",
+  "Cybersecurity Explorer.",
+  "Learning. Breaking. Securing."
 ];
-const el = document.querySelector(".typed-text");
-let i = 0, j = 0, isDeleting = false;
-function loop() {
-  const current = phrases[i];
-  if (!isDeleting && j < current.length) {
-    el.textContent += current[j++];
-  } else if (isDeleting && j > 0) {
-    el.textContent = el.textContent.slice(0, -1);
-    j--;
+
+let currentPhrase = 0;
+let currentChar = 0;
+let isDeleting = false;
+const typingElement = document.getElementById("typing");
+
+function type() {
+  const phrase = phrases[currentPhrase];
+  typingElement.textContent = phrase.substring(0, currentChar);
+
+  if (!isDeleting) {
+    if (currentChar < phrase.length) {
+      currentChar++;
+    } else {
+      isDeleting = true;
+      setTimeout(type, 1000);
+      return;
+    }
+  } else {
+    if (currentChar > 0) {
+      currentChar--;
+    } else {
+      isDeleting = false;
+      currentPhrase = (currentPhrase + 1) % phrases.length;
+    }
   }
-  if (j === current.length) {
-    isDeleting = true;
-    setTimeout(loop, 1000);
-    return;
-  }
-  if (isDeleting && j === 0) {
-    isDeleting = false;
-    i = (i + 1) % phrases.length;
-  }
-  setTimeout(loop, isDeleting ? 50 : 150);
+  setTimeout(type, isDeleting ? 40 : 100);
 }
-document.addEventListener("DOMContentLoaded", loop);
+
+document.getElementById("toggleMode").addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
+
+type();
