@@ -37,7 +37,7 @@ body.dark-mode {
   width: 100%;
   text-align: center;
   font-size: 0.75rem;
-  color: #ff0000;
+  color: #87CEEB;
   animation: flicker 2s infinite alternate;
 }
 
