@@ -1,25 +1,26 @@
 const phrases = [
-  "Student. Ethical Hacker.",
-  "Cybersecurity Explorer.",
-  "Learning. Breaking. Securing."
+  "🧠 Stay curious. Stay secure.",
+  "💻 Student of Cybersecurity.",
+  "🔐 Learning from TryHackMe.",
+  "🐧 Linux is my playground."
 ];
 
 let currentPhrase = 0;
 let currentChar = 0;
 let isDeleting = false;
-const typingElement = document.getElementById("typing");
 
 function type() {
+  const textElement = document.getElementById("typing-text");
+
   const phrase = phrases[currentPhrase];
-  typingElement.textContent = phrase.substring(0, currentChar);
+  const displayText = phrase.substring(0, currentChar);
+  textElement.textContent = displayText;
 
   if (!isDeleting) {
     if (currentChar < phrase.length) {
       currentChar++;
     } else {
       isDeleting = true;
-      setTimeout(type, 1000);
-      return;
     }
   } else {
     if (currentChar > 0) {
@@ -29,11 +30,8 @@ function type() {
       currentPhrase = (currentPhrase + 1) % phrases.length;
     }
   }
-  setTimeout(type, isDeleting ? 40 : 100);
+
+  setTimeout(type, isDeleting ? 50 : 100);
 }
 
-document.getElementById("toggleMode").addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-});
-
-type();
+document.addEventListener("DOMContentLoaded", type);
