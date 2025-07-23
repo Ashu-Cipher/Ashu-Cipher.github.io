@@ -1,77 +1,46 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashu_Cipher | Portfolio</title>
-  <style>
-    body {
-      background-color: #0d0d0d;
-      color: #00ffcc;
-      font-family: 'Courier New', monospace;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px dashed #00ffcc;
-      margin-bottom: 1rem;
-    }
-    .glitch-text {
-      font-size: 2rem;
-      animation: blinkCursor 1s infinite step-start;
-    }
-    @keyframes blinkCursor {
-      50% {
-        border-right: 2px solid transparent;
-      }
-    }
-    .feedback {
-      background-color: #1a1a1a;
-      padding: 1rem;
-      margin-top: 2rem;
-      border-left: 4px solid #00ffcc;
-    }
-    .feedback p {
-      margin: 0.5rem 0;
-    }
-    .social-links {
-      margin-top: 2rem;
-    }
-    .social-links a {
-      margin-right: 1rem;
-      color: #00ffcc;
-      text-decoration: none;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashu_Cipher | Cybersecurity Enthusiast</title>
+  <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-  <div class="container">
-    <img class="profile-pic" src="profile.jpg" alt="Ashu_Cipher" />
-    <div class="glitch-text">🧠 Stay curious. Stay secure. – Ashu_Cipher</div>
-
-    <div class="social-links">
-      <a href="https://github.com/Ashu-Cipher" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/amardeep-kumar-305562376?trk=contact-info" target="_blank">LinkedIn</a>
-      <a href="https://instagram.com/ashu_cipher" target="_blank">Instagram</a>
-      <a href="https://x.com/Ashu_Cipher" target="_blank">X</a>
+  <header>
+    <div class="profile-container">
+      <img src="ashu_cipher_dp.jpg" alt="Ashu Cipher" class="profile-img" />
+      <div class="profile-border">EAT • HACK • SLEEP • REPEAT</div>
     </div>
-
-    <div class="feedback">
-      <h3>💬 Feedback</h3>
-      <p>"One of the most promising young minds in cybersecurity."</p>
-      <p>"Creative. Focused. Hacker-minded."</p>
-      <p>"Ashu_Cipher is going places. Mark my words."</p>
-      <p>💡 Want to leave feedback? <a href="https://github.com/Ashu-Cipher/Ashu-Cipher.github.io/issues">Create an issue</a> or DM me on <a href="https://instagram.com/ashu_cipher">Instagram</a></p>
+    <div class="hacker-terminal">
+      <span class="typed-text"></span><span class="cursor">&block;</span>
     </div>
-  </div>
+  </header>
+
+  <nav class="social-links">
+    <a href="https://github.com/Ashu-Cipher" target="_blank">GitHub</a>
+    <a href="https://instagram.com/ashu_cipher" target="_blank">Instagram</a>
+    <a href="https://x.com/Ashu_Cipher" target="_blank">X</a>
+    <a href="https://www.linkedin.com/in/amardeep-kumar-305562376?trk=contact-info" target="_blank">LinkedIn</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a school student passionate about ethical hacking and cybersecurity. I’ve earned over 15 certifications in cybersecurity, Linux, and networking from Great Learning.
+        I enjoy solving real-world security challenges on platforms like TryHackMe and have also learned Python at an intermediate level.
+        I aim to keep learning, growing, and staying secure in the digital world.
+      </p>
+    </section>
+
+    <section id="feedback">
+      <h2>Feedback</h2>
+      <p>To share your thoughts, create an issue on my <a href="https://github.com/Ashu-Cipher" target="_blank">GitHub</a> or DM me on <a href="https://instagram.com/ashu_cipher" target="_blank">Instagram</a>.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
