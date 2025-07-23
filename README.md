@@ -36,7 +36,7 @@ Welcome to the GitHub repository for my personal portfolio website — a minimal
 
 - **Instagram**: [@ashu_cipher](https://instagram.com/ashu_cipher)
 - **X (Twitter)**: [@Ashu_Cipher](https://x.com/Ashu_Cipher)
-- **LinkedIn**: [My Profile](https://www.linkedin.com/in/amardeep-kumar-305562376)
+- **LinkedIn**: [My Profile](https://www.linkedin.com/in/ashu-cipher)
 
  ● If you want to use, you can start a pull request
 
