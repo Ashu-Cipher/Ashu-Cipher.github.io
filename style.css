@@ -45,7 +45,7 @@ body.dark-mode {
   flex-grow: 1;
   font-size: 1.5rem;
   color: #00ffcc;
-  display: flex;
+  display: block;
   min-height: 3em;
   align-items: center;
 }
