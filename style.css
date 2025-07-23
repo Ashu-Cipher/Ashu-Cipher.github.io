@@ -11,6 +11,24 @@ body.dark-mode {
   font-family: 'Courier New', monospace;
 }
 
+/* Light mode (when .dark-mode is NOT active) */
+body {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #00695c; /* A nice cyber-blue or green tone */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional hover or accent text colors */
+a {
+  color: #00695c;
+}
+
 .container {
   padding: 2rem;
   max-width: 900px;
