@@ -1,28 +1,31 @@
-const phrases = [
+
+const hackerTexts = [
   "🧠 Stay curious. Stay secure.",
-  "Scanning vulnerabilities...",
-  "TryHackMe Session: Active",
-  "Listening on port 443..."
+  "root@Ashu_Cipher:~# hacking the matrix...",
+  "echo 'Welcome to my world!'"
 ];
-const el = document.querySelector(".typed-text");
-let i = 0, j = 0, isDeleting = false;
-function loop() {
-  const current = phrases[i];
-  if (!isDeleting && j < current.length) {
-    el.textContent += current[j++];
-  } else if (isDeleting && j > 0) {
-    el.textContent = el.textContent.slice(0, -1);
-    j--;
+
+let index = 0;
+let charIndex = 0;
+let isDeleting = false;
+const textElement = document.getElementById("hacker-text");
+
+function type() {
+  const currentText = hackerTexts[index];
+  if (isDeleting) {
+    charIndex--;
+    if (charIndex === 0) {
+      isDeleting = false;
+      index = (index + 1) % hackerTexts.length;
+    }
+  } else {
+    charIndex++;
+    if (charIndex === currentText.length) {
+      isDeleting = true;
+    }
   }
-  if (j === current.length) {
-    isDeleting = true;
-    setTimeout(loop, 1000);
-    return;
-  }
-  if (isDeleting && j === 0) {
-    isDeleting = false;
-    i = (i + 1) % phrases.length;
-  }
-  setTimeout(loop, isDeleting ? 50 : 150);
+  textElement.textContent = currentText.slice(0, charIndex);
+  setTimeout(type, isDeleting ? 50 : 100);
 }
-document.addEventListener("DOMContentLoaded", loop);
+
+document.addEventListener("DOMContentLoaded", type);
