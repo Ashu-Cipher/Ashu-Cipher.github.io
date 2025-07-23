@@ -45,7 +45,7 @@ body.dark-mode {
   flex-grow: 1;
   font-size: 1.5rem;
   color: #00ffcc;
-  display: block;
+  display: inline-block;
   min-height: 3em;
   align-items: center;
 }
@@ -57,7 +57,7 @@ body.dark-mode {
 }
 
 .blinking-cursor {
-  display: inline-block
+  display: inline-block;
   font-weight: bold;
   color: #00ffcc;
   animation: blink 0.8s steps(2, start) infinite;
