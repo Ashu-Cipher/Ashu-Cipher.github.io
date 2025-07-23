@@ -12,7 +12,7 @@ body.dark-mode {
 }
 
 /* Light mode (when .dark-mode is NOT active) */
-body {
+body.light-mode {
   background-color: #f5f5f5;
   color: #1a1a1a;
   transition: background-color 0.3s ease, color 0.3s ease;
