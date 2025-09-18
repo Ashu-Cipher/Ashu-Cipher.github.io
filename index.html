@@ -1,68 +1,578 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashu_Cipher | Hacker Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashu-Cipher | Cybersecurity Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #00ff41;
+            --dark: #0a0a0a;
+            --darker: #000000;
+            --light: #f0f0f0;
+            --gray: #2a2a2a;
+            --accent: #00cc33;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 16px;
+            background-color: var(--primary);
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .header {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        .logo span {
+            color: var(--light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 65, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 65, 0.1) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+
+        .terminal {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            margin-top: 2rem;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .terminal-title {
+            flex: 1;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .terminal-body {
+            line-height: 1.8;
+        }
+
+        .terminal-line {
+            margin-bottom: 0.5rem;
+        }
+
+        .terminal-prompt {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        .skills-section {
+            padding: 6rem 2rem;
+            background: rgba(5, 5, 5, 0.7);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .skills-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 255, 65, 0.2);
+            border-color: var(--primary);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificates-section {
+            padding: 6rem 2rem;
+        }
+
+        .certificates-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .certificate-card {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 65, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .cert-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cert-count {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .contact-section {
+            padding: 6rem 2rem;
+            background: rgba(5, 5, 5, 0.7);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(30, 30, 30, 0.8);
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.4);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.4);
+        }
+
+        .footer {
+            background: var(--darker);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 255, 65, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
-<body class="dark-mode">
-  <div class="container">
-    <header class="hero-section">
-      <div class="hero-left">
-        <img src="img.png" alt="Ashu_Cipher" class="profile-pic" />
-      </div>
-      <div class="hero-right">
-        <h1 class="hero-text">
-          <span id="typewriter-text"></span><span class="cursor">|</span>
-        </h1>
-        <p class="tagline">🧠 Stay curious. Stay secure.<br>– Ashu_Cipher</p>
-      </div>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">Ashu-<span>Cipher</span></div>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#skills">Skills</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <section class="box about">
-      <h2>$WHOAMI</h2>
-      <p>
-        I'm a passionate school student exploring the world of ethical hacking & cybersecurity.
-        With 15+ certifications from Great Learning and hands-on skills in Linux, networking, and Python,
-        I'm sharpening my skills daily using platforms like TryHackMe.
-      </p>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Cybersecurity <span>Expert</span><br>& Ethical Hacker</h1>
+                <p>Specializing in Python, Networking, Kali Linux, and Arch Linux with 15+ cybersecurity certifications. Dedicated to protecting digital landscapes through advanced penetration testing and security research.</p>
+                
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <div class="terminal-dot dot-red"></div>
+                            <div class="terminal-dot dot-yellow"></div>
+                            <div class="terminal-dot dot-green"></div>
+                        </div>
+                        <div class="terminal-title">ashu@cipher:~</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line"><span class="terminal-prompt">$</span> whoami</div>
+                        <div class="terminal-line">Ashu-Cipher - Cybersecurity Specialist</div>
+                        <div class="terminal-line"><span class="terminal-prompt">$</span> cat expertise.txt</div>
+                        <div class="terminal-line">Python | Networking | Kali Linux | Arch Linux</div>
+                        <div class="terminal-line"><span class="terminal-prompt">$</span> ls -la certificates/</div>
+                        <div class="terminal-line">15 certifications in Cybersecurity</div>
+                        <div class="terminal-line"><span class="terminal-prompt">$</span> ping ashu-cipher.github.io</div>
+                        <div class="terminal-line">Pinging portfolio... <span class="terminal-cursor"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="box skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>Cybersecurity 🔐</li>
-        <li>Linux (Kali,Arch) 👨🏻‍💻</li>
-        <li>Networking (TCP/IP, DNS, Firewalls) 🌐</li>
-        <li>Python (Intermediate) 🐍</li>
-        <li>TryHackMe 🧪</li>
-        <li>Bash Scripting 👻</li>
-      </ul>
+    <section class="skills-section" id="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <h3>Python Development</h3>
+                <p>Advanced scripting for automation, penetration testing tools, network analysis, and security applications. Experienced in creating custom exploits and security utilities.</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Network Security</h3>
+                <p>Deep understanding of networking protocols, firewall configurations, intrusion detection systems, and network vulnerability assessment techniques.</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-skull-crossbones"></i>
+                </div>
+                <h3>Ethical Hacking</h3>
+                <p>Proficient in penetration testing methodologies, vulnerability analysis, exploit development, and security auditing using industry-standard tools.</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-linux"></i>
+                </div>
+                <h3>Kali & Arch Linux</h3>
+                <p>Expert in security-focused Linux distributions with extensive knowledge of command-line tools, system hardening, and custom security configurations.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="box projects">
-      <h2>Projects</h2>
-      <p>More projects coming soon... 🚧</p>
+    <section class="certificates-section" id="certificates">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certificates-grid">
+            <div class="certificate-card">
+                <div class="cert-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Security+</h3>
+                <p>CompTIA Security+</p>
+            </div>
+            
+            <div class="certificate-card">
+                <div class="cert-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Ethical Hacking</h3>
+                <p>CEH Certification</p>
+            </div>
+            
+            <div class="certificate-card">
+                <div class="cert-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Penetration Testing</h3>
+                <p>Advanced Pen Testing</p>
+            </div>
+            
+            <div class="certificate-card">
+                <div class="cert-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Network Security</h3>
+                <p>Cisco Security</p>
+            </div>
+            
+            <div class="certificate-card">
+                <div class="cert-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Python Security</h3>
+                <p>Secure Coding</p>
+            </div>
+            
+            <div class="certificate-card">
+                <div class="cert-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Digital Forensics</h3>
+                <p>Forensic Analysis</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <div class="cert-count">15+</div>
+            <p>Total Cybersecurity Certifications</p>
+        </div>
     </section>
 
-    <section class="box contact">
-      <h2>Contact</h2>
-      <p>📩 You Can Connect Me On Following Social</p>
-      <ul class="social-links">
-        <li><a href="https://github.com/Ashu-Cipher" target="_blank">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/ashu-cipher" target="_blank">LinkedIn</a></li>
-        <li><a href="https://instagram.com/ashu_cipher" target="_blank">Instagram</a></li>
-        <li><a href="https://x.com/Ashu_Cipher" target="_blank">X (Twitter)</a></li>
-      </ul>
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <h2 class="section-title">Connect With Me</h2>
+            <p>Explore my portfolio and connect with me through various platforms to discuss cybersecurity projects, collaborations, or opportunities.</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/Ashu-Cipher" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com" class="social-link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:ashu.cipher@example.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            
+            <a href="https://ashu-cipher.github.io" class="btn" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Visit My Portfolio
+            </a>
+        </div>
     </section>
 
-    <section class="box feedback">
-      <h2>Feedback</h2>
-      <p>💬 Create a <a href="https://github.com/Ashu-Cipher" target="_blank">GitHub</a> Issue or message me directly on <a href="https://instagram.com/ashu_cipher" target="_blank">Instagram</a>!</p>
-    </section>
-  </div>
+    <footer class="footer">
+        <p>&copy; 2023 Ashu-Cipher. All rights reserved.</p>
+        <p>Securing the digital world, one line of code at a time.</p>
+    </footer>
+
+    <script>
+        // Simple animation for terminal cursor
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.querySelector('.terminal-cursor');
+            
+            // Add typing effect to terminal
+            const terminalLines = document.querySelectorAll('.terminal-line');
+            terminalLines.forEach((line, index) => {
+                if(index > 0) {
+                    line.style.opacity = '0';
+                    setTimeout(() => {
+                        line.style.transition = 'opacity 0.5s ease';
+                        line.style.opacity = '1';
+                    }, index * 1000);
+                }
+            });
+            
+            // Add scroll animation to skill cards
+            const skillCards = document.querySelectorAll('.skill-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            skillCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>
