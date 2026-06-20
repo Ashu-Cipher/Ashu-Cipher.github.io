@@ -24,7 +24,7 @@ const commands: Record<string, string> = {
 ╚══════════════════════════════════════╝`,
     
     skills: `
-    Scripting:   Python, Bash, Go, Rust
+    Scripting:   Python, Bash, Go, Rust, c#
     Foundation:  TypeScript, Node.js, React, FastAPI
     Infra:       Linux, Docker, AWS, SQL
     Focus:       OSCP, CTFs, AD, Labs`,
