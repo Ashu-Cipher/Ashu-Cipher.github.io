@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ashu-Cipher | Hacker",
   description: "Hacker Portfolio by Ashu-Cipher",
+  verification: {
+    google: 'MdKQ3_DliKiATQ-tzlhBQKJTqkmfbQSJzCmojvW0WIM',
+  },
   openGraph: {
     title: "Ashu-Cipher | Hacker",
     description: "Hacker Portfolio",
