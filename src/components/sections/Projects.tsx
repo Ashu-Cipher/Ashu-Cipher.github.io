@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Folder } from "lucide-react";
 import { features, title } from "process";
 import { SiGithub, SiMarkdown } from "react-icons/si";
+import Image from "next/image";
 
 const projects = [
     {
@@ -75,11 +76,15 @@ export default function Projects() {
                             <div
                               className={`relative group ${i % 2 !== 0 ? "md:order-2" : ""}`}
                             >
-                                <div className="aspect-video bg-hacker-terminal rounded-lg border border-hacker-green/10 overflow-hidden relative">
-                                 <div className="absolute inset-0 bg-hacker-green/5 group-hover:bg-transparent transition-all duration-300" />
-                                 <div className="w-full h-full flex items-center justify-center text-hacker-green/30 text-6xl font-bold">
-                                   {project.title[0]}
-                                 </div>
+                                <div className="aspect-video bg-[#0a0a0a] rounded-lg border border-hacker-green/20 overflow-hidden relative">
+                                 <div className="absolute inset-0 bg-hacker-green/10 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
+
+                                 <Image
+                                 src={project.image}
+                                 alt={`${project.title} screenshot`}
+                                 fill
+                                 className="object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                                />
                                 </div>
                             </div>
 
