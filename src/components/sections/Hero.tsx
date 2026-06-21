@@ -5,28 +5,34 @@ import GlitchText from "../ui/GlitchText";
 import TypeWriter from "../ui/TypeWriter";
 import MatrixRain from "../ui/MatrixRain";
 import { ChevronDown, Icon } from "lucide-react";
-import { SiGithub, SiX } from "react-icons/si";
+import { SiGithub, SiInstagram, SiX } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
     return (
         <section
           id="hero"
-          className="relative min-h-screen flex items-center justify center overflow-hidden"
+          className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
         >
             <MatrixRain />
 
-            <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30" />
+            <div className="pointer-events-none absolute inset-0 z-[5] bg-[lineargradient(transparent_50%,rgba(0,0,0,0.8)_50%] bg-[length:100%_4px" />
 
-            <div className="absolute inset-0 bg-gradient-radial from-hacker-green/5 via-transparent to-transparent" />
+            <div 
+              className="pointer-events-none absolute inset-0 z-[5] opacity-15 mix-blend-overlay"
+              style={{
+               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`              }}
+            />
 
-            <div className="reltive z-10 text-center px-6 max-w-4xl">
+            <div className="pointer-events-none absolute inset-0 z-[6] bg-[radial-gradient(circle_at_center,_transparent_10%,_#000000_100%)] opacity-95" />
+
+            <div className="relative z-10 text-center px-6 max-w-4xl">
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-hacker-green/20 bg-hacker-green/5 mb-8"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-hacker-green/40 bg-black/60 backdrop-blur-md mb-8 shadow-[0_0_10px_rgba(0,255,65,0.05)"
                 >
                     <span className="w-2 h-2 bg-hacker-green rounded-full animate-pulse" />
                     <span className="text-hacker-green text-sm">
@@ -40,9 +46,9 @@ export default function Hero() {
                   transition={{ delay: 0.4 }}
                 >
                     <p className="text-hacker-green text-lg mb-4 font-mono">
-                        Hello, World! I'm
+                        $ echo "Hello, World! I'm"
                     </p>
-                    <h1 className="tex-5xl md:text-7xl lg:text-8xl font-bold mb-6">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
                         <GlitchText text="Ashu-Cipher" className="text-gradient" />
                     </h1>
                 </motion.div>                   
@@ -51,7 +57,7 @@ export default function Hero() {
                  initial={{ opacity: 0 }}
                  animate={{ opacity: 1 }}
                  transition={{ delay: 0.8 }}
-                 className="text-xl md:text-2xl text-gray-400 mb-8 h-8"
+                 className="text-xl md:text-3xl text-gray-400 mb-8 h-8"
                 >
                     <span className="text-gray-500">{">"}</span>
                     <TypeWriter
@@ -79,7 +85,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2 }}
-                  className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+                  className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
                 >
                     <motion.a
                       href="#projects"
@@ -108,6 +114,7 @@ export default function Hero() {
                     {[
                         { icon: SiGithub, href: "https://github.com/Ashu-Cipher" },
                         { icon: FaLinkedin, href: "https://linkedin.com/in/ashu-cipher" },
+                        { icon: SiInstagram, href: "https://instagram.com/ashu_cipher" },
                         { icon: SiX, href: "https://x.com/ashu_cipher" },
                     ].map(({ icon: Icon, href }) => (
                         <motion.a

@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Contact, Minus, Square, X } from "lucide-react";
 
@@ -9,9 +9,7 @@ const commands: Record<string, string> = {
     help: `Available commands:
     about       — Who am I?
     skills      — Tech Stack
-    projects    — My work
     contact     — Reach me
-    social      — Social links
     clear       — Clear terminal
     fastfetch   — System info`,
 
@@ -29,7 +27,7 @@ const commands: Record<string, string> = {
     Infra:       Linux, Docker, AWS, SQL
     Focus:       OSCP, CTFs, AD, Labs`,
 
-     Contact: `
+    contact: `
     Email:      ashu.cipher@gmail.com
     Github:     gitub.com/Ashu-Cipher
     Twitter:    x.com/ashu_cipher
@@ -48,8 +46,18 @@ const commands: Record<string, string> = {
 };
 
 export default function Terminal() {
-    const [history, setHistory] = useState<{ cmd: String; output: string }[]>([]);
+    const [history, setHistory] = useState<{ cmd: string; output: string }[]>([]);
     const [input, setInput] = useState("");
+
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollTo({
+                top: scrollContainerRef.current.scrollHeight,
+                behavior: "smooth"
+            });
+        }
+    }, [history]);
 
     const handleCommand = (e: React.FormEvent) => {
         e.preventDefault();
@@ -61,7 +69,7 @@ export default function Terminal() {
             return;
         }
 
-        const output = commands[cmd] || `Command not found: ${cmd}. Type 'help' for available commads.`;
+        const output = commands[cmd] || `Command not found: ${cmd}. Type 'help' for available commands.`;
         setHistory((prev) => [...prev, { cmd: input, output }]);
         setInput("");
     };
@@ -86,9 +94,11 @@ export default function Terminal() {
             </div>
 
 
-            <div className="bg-hacker-terminal p-4 h-80 overflow-y-auto font-mono text-sm">
-
-                <div className="text-haker-green/60 mb-4">
+            <div 
+             ref={scrollContainerRef}
+             className="bg-hacker-terminal p-4 h-80 overflow-y-auto font-mono text-sm"
+            >
+                <div className="text-hacker-green/60 mb-4">
                  Welcome to my portfolio terminal. Type &apos;help&apos; for commands. 
                 </div>
 
@@ -99,7 +109,7 @@ export default function Terminal() {
                             <span className="text-hacker-green">❯</span>
                             <span className="text-gray-300">{entry.cmd}</span>
                         </div>
-                        <pre className="text-gray-400 mt-1 whitespace-pre-warp text-xs leading-relaxed">
+                        <pre className="text-gray-400 mt-1 whitespace-pre-wrap text-xs leading-relaxed">
                             {entry.output}
                         </pre>
                     </div>    

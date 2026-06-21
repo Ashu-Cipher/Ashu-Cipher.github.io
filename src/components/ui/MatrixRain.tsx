@@ -22,9 +22,9 @@ export default function MatrixRain() {
 
         function draw() {
             if (!canvasEl || !ctx) return;
-            ctx.fillStyle = "rgba(10, 10, 10, 0.05)";
+            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
             ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
-            ctx.fillStyle = "#00ff4120";
+            ctx.fillStyle = "rgba(0, 255, 65, 0.08)";
             ctx.font = `${fontSize}px monospace`;
 
             drops.forEach((y, i) => {
