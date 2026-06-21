@@ -40,7 +40,7 @@ export default function Hero() {
                   transition={{ delay: 0.4 }}
                 >
                     <p className="text-hacker-green text-lg mb-4 font-mono">
-                        Hello, World! I&pos;m
+                        Hello, World! I'm
                     </p>
                     <h1 className="tex-5xl md:text-7xl lg:text-8xl font-bold mb-6">
                         <GlitchText text="Ashu-Cipher" className="text-gradient" />
