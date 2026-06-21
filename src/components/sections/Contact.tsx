@@ -31,14 +31,15 @@ export default function Contact() {
 
             const data = await response.json();
 
-            if (data.success) {
+            if (response.ok && data.success) {
                 setStatus("sent");
-                e.currentTarget.reset();
+                e.currentTarget?.reset();
                 setTimeout(() => setStatus("idle"), 4000);
             } else {
                 setStatus("error");
             }
-        } catch {
+        } catch (error) {
+            console.error("Form submission error:", error);
             setStatus("error");
         }
     };
