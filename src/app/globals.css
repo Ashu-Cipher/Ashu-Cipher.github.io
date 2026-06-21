@@ -1,10 +1,72 @@
 @import "tailwindcss";
-@tailwind base;
-@taitwind components;
-@tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap");
 
+
+@theme {
+
+  --colors-hacker-bg: #0a0a0a;
+  --color-hacker-terminal: #0d1117;
+  --color-hacker-green: #00ff41;
+  --color-hacker-cyan: #00d4ff;
+  --color-hacker-purple: #bd00ff;
+  --color-hacker-red: #ff0040;
+  --color-hacker-amber: #ffb000;
+  --color-hacker-dim: #0a0f0a;
+  --color-hacker-border: #1a1a2e;
+  --color-hacker-card: #111111;
+
+  --font-mono: "JetBrain Mono", "Fira Code", monospace;
+  --font-sans: "Inter", sans-serif;
+
+  --animate-matrix-fall: matrixFall 10s linear infinite;
+  --animate-glitch: glitch 1s linear infinite;
+  --animate-pulse-green: pulseGreen 2s ease-in-out infinite;
+  --animate-scanline: scanline 6s linear infinite;
+  --animate-flicker: flicker 0.15s infinite;
+  --animate-typing: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+
+  @keyframes matrixFall {
+    0% { transform: translateY(-100%); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+
+  @keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+
+  @keyframes pulseGreen {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @keyframes scanline {
+    0% { top: 0%; }
+    100% { top: 100%; }
+  } 
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00ff41; }
+  }
+
+  --background-image-grid-pattern: linear-gradient(rgba(0,255,65,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.03) 1px, transparent 1px);
+  --background-size-grid: 50px 50px;
+}
 :root {
   --color-green: #00ff41;
   --color-cyan: #00d4ff;
