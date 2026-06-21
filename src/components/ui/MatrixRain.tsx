@@ -3,24 +3,27 @@
 import { useEffect, useRef } from "react";
 
 export default function MatrixRain() {
-    const canvas = useRef<HTMLCanvasElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
-        const canvas = canvasRef.current!;
-        const ctx = canvas.getContext("2d")!;
+        const canvasEl = canvasRef.current;
+        if (!canvasEl) return;
+        const ctx = canvasEl.getContext("2d");
+        if (!ctx) return;
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvasEl.width = window.innerWidth;
+        canvasEl.height = window.innerHeight;
 
         const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]();:.";
         const charArray = chars.split("");
         const fontSize = 14;
-        const columns = canvas.width / fontSize;
+        const columns = canvasEl.width / fontSize;
         const drops: number[] = Array(Math.floor(columns)).fill(1);
 
         function draw() {
+            if (!canvasEl || !ctx) return;
             ctx.fillStyle = "rgba(10, 10, 10, 0.05)";
-            ctx.fillReact(0, 0, canvas.width, canvas.height);
+            ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
             ctx.fillStyle = "#00ff4120";
             ctx.font = `${fontSize}px monospace`;
 
@@ -30,7 +33,7 @@ export default function MatrixRain() {
                 ctx.fillText(text, x, y * fontSize);
 
                 
-                if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                if (y * fontSize > canvasEl.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
                 drops[i]++;
@@ -40,8 +43,9 @@ export default function MatrixRain() {
         const interval = setInterval(draw, 50);
 
         const handleResize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            if (!canvasEl) return;
+            canvasEl.width = window.innerWidth;
+            canvasEl.height = window.innerHeight;
         };
 
         window.addEventListener("resize", handleResize);
