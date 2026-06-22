@@ -1,30 +1,53 @@
-# 🧠 Ashu_Cipher — Cybersecurity Themed Portfolio
+# 🧠 Ashu Cipher — Cybersecurity Themed Portfolio
 
-Welcome to the GitHub repository for my personal portfolio website — a minimalist yet futuristic hacker-themed terminal interface.
+Welcome to the GitHub repository for my personal portfolio website.
 
-> 💻 Built by a student passionate about Ethical Hacking, Cybersecurity, Linux, Networking & Python  
+> 💻 Built by a student passionate about Offensive Security.
+
 > 🔐 Dark mode by default, glitch effects, terminal animations & fully responsive design.
 
 ---
 
-## 🕶 Features
+## Website UI Gallery
+#### Home
 
-- ⚡ Dark mode with toggle
-- 💬 Terminal-like animated header with blinking cursor
-- 👤 Glitchy GitHub profile display
-- 📱 Fully responsive (mobile, tablet, desktop)
-- 🌐 Social links (GitHub, LinkedIn, Instagram, X)
+#### About Me
 
----
+#### Projects
 
-## 🛠️ Technologies Used
+#### Skills
 
-- HTML5, CSS3, JavaScript
-- GitHub Pages for deployment
-- Terminal-style animation via vanilla JS
-- Custom glitch effects & aesthetic hacker UI
+#### Contact
 
 ---
+
+## ⚙️ Tech Stack
+
+- Next.js: Framework
+- GitHub Pages: Deployment
+- Github Actions: CI/CD
+- Tailwind CSS v4: Configuration
+- Custom CSS keyframes: Animation
+- web3form: Communication
+
+#### Note
+-> I declare that i have used Gemini and Claude Haiku for some debugging.
+---
+
+## 💻 Local Deployment
+if you can to test locally
+
+```bash
+git clone https://github.com/Ashu-Cipher/Ashu-Cipher.github.io  
+
+cd Ashu-Cipher.github.io
+
+npm install
+
+npm run dev
+```
+
+--- 
 
 ## 🌍 Live Preview
 
